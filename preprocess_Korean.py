@@ -1,4 +1,4 @@
-!pip install konlpy
+# !pip install konlpy
 from konlpy.tag import Hannanum
 import re
 
