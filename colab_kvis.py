@@ -5,5 +5,4 @@ def colab_kvis():
     font_path = "/usr/share/fonts/truetype/nanum/NanumBarunGothic.ttf"
     font_name = fm.FontProperties(fname=font_path).get_name()
     matplotlib.rc('font', family=font_name)
-    %matplotlib inline
     return print("한글 폰트 시각화 준비 완료")
