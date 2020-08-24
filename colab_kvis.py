@@ -9,3 +9,4 @@ def colab_kvis():
     plt.rc('font', family=font.get_name())
     fm._rebuild()
     matplotlib.rcParams['axes.unicode_minus'] = False
+    return print("한글 시각화 준비 완료")
