@@ -1,8 +1,11 @@
+import subprocess
 import matplotlib
+import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 def colab_kvis():
-    fm.get_fontconfig_fonts()
-    font_path = "/usr/share/fonts/truetype/nanum/NanumBarunGothic.ttf"
-    font_name = fm.FontProperties(fname=font_path).get_name()
-    matplotlib.rc('font', family=font_name)
-    return print("한글 폰트 시각화 준비 완료")
+    subprocess.run(["apt-get", "install", "fonts-nanum*"])
+    path = '/usr/share/fonts/truetype/nanum/NanumBarunGothic.ttf'
+    font = fm.FontProperties(fname=path, size=12)
+    plt.rc('font', family=font.get_name())
+    fm._rebuild()
+    matplotlib.rcParams['axes.unicode_minus'] = False
