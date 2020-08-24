@@ -1,13 +1,9 @@
-import subprocess
-import matplotlib as mpl  # 기본 설정 만지는 용도
-import matplotlib.font_manager as fm  # 폰트 관련 용도
-
+import matplotlib
+import matplotlib.font_manager as fm
 def colab_kvis():
-    subprocess.run(["config InlineBackend.figure_format = 'retina'"])
-    subprocess.run(["apt -qq -y install fonts-nanum > /dev/null"])
-    path = "/usr/share/fonts/truetype/nanum/NanumBarunGothic.ttf"    # '/content/drive/My Drive/python_JH/Malgun-Gothic_29382.ttf'
-    font = fm.FontProperties(fname=path, size=10)
-    plt.rc('font', family=font.get_name())
-    fm._rebuild()
-    mpl.rcParams['axes.unicode_minus'] = False
-    return print("한글 시각화 준비 완료")
+    fm.get_fontconfig_fonts()
+    font_path = "/usr/share/fonts/truetype/nanum/NanumBarunGothic.ttf"
+    font_name = fm.FontProperties(fname=font_path).get_name()
+    matplotlib.rc('font', family=font_name)
+    %matplotlib inline
+    return print("한글 폰트 시각화 준비 완료")
