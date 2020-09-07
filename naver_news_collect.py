@@ -59,6 +59,7 @@ class Naver_news_collect:
                         a2.append(re.findall(r'\d+\w+\s+전', ai)[0])
 
                 bbb = soup.select("dl > dt > a")
+                bbb.remove(soup.select("dl > dt > a.link_help")[0])
                 b1 = [b.text for b in bbb]       # 제목
                 b2 = [b["href"] for b in bbb]    # URL
 
@@ -115,6 +116,7 @@ class Naver_news_collect:
                         a2.append(re.findall(r'\d+\w+\s+전', ai)[0])
 
                 bbb = soup.select("dl > dt > a")
+                bbb.remove(soup.select("dl > dt > a.link_help")[0])
                 b1 = [b.text for b in bbb]       # 제목
                 b2 = [b["href"] for b in bbb]    # URL
 
