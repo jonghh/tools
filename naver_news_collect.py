@@ -1,4 +1,4 @@
-! pip3 install newspaper3k
+# ! pip3 install newspaper3k
 from newspaper import Article
 import urllib
 import requests
