@@ -15,7 +15,10 @@ class Naver_news_collect:
         #self.store_path = store_path
     def count(self, date_from, date_to, title):
         ''' 검색 건수 보여주기 '''
-        word = urllib.parse.quote(self.search_term)
+        if re.findall("\w\s\w\s*\w*", self.search_term):
+            word = "".join(["%22", urllib.parse.quote_plus(self.search_term), "%22"])
+        else:
+            word = urllib.parse.quote(self.search_term)
         url_base = "https://search.naver.com/search.naver?where=news&query={}&sort=0&photo=0&field={}&nso=so:r,p:from{}to{},a:t&start=1" #제목 검색
         self.target_url = url_base.format(word, title, date_from, date_to) # title: 1=제목 검색, 0=전체 검색
         req = requests.get(self.target_url)
