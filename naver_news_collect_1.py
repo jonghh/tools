@@ -70,13 +70,13 @@ class Naver_news_collect:
                 titles.append("")
                 urls.append("")
         if len(sources) > 1: sources = sum(sources, [])
-        else: pass
+        else: sources = sources[0]
         if len(dates) > 1: dates = sum(dates, [])
-        else: pass
+        else: dates = dates[0]
         if len(titles) > 1: titles = sum(titles, [])
-        else: pass
+        else: titles = titles[0]
         if len(urls) > 1: urls = sum(urls, [])
-        else: pass
+        else: urls = urls[0]
         news_all= pd.DataFrame({"source": sources, "date": dates, "title":titles,  "url": urls})
         news_all.to_csv(store_path, encoding="utf_8_sig")
         self.urls = urls
