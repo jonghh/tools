@@ -16,11 +16,8 @@ class Naver_news_collect:
     def count(self, date_from, date_to, title):
         ''' 검색 건수 보여주기 '''
         word = urllib.parse.quote(self.search_term)
-        if title = 1:
-            url_base = "https://search.naver.com/search.naver?where=news&query={}&sort=0&photo=0&field=1&nso=so:r,p:from{}to{},a:t&start=1" #제목 검색
-        else:
-            url_base = "https://search.naver.com/search.naver?where=news&query={}&sort=0&photo=0&field=0&nso=so:r,p:from{}to{},a:t&start=1" # 본문 검색
-        self.target_url = url_base.format(word, date_from, date_to)
+        url_base = "https://search.naver.com/search.naver?where=news&query={}&sort=0&photo=0&field={}&nso=so:r,p:from{}to{},a:t&start=1" #제목 검색
+        self.target_url = url_base.format(word, title, date_from, date_to) # title: 1=제목 검색, 0=전체 검색
         req = requests.get(self.target_url)
         soup =BeautifulSoup(req.text, "html.parser")
         cases = soup.select_one("#main_pack > div.news.mynews.section._prs_nws > div.section_head > div.title_desc.all_my > span")
