@@ -30,7 +30,7 @@ class Naver_news_collect:
         i = 1
         while self.cases > i+9:
             i += 10
-            ii.append(target_url[:-1]+"{}".format(i))
+            ii.append(self.target_url[:-1]+"{}".format(i))
 
         sources = []
         dates = []
