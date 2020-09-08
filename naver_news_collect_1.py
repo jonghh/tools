@@ -64,13 +64,8 @@ class Naver_news_collect:
                 dates.append(a2)
                 titles.append(b1)
                 urls.append(b2)
-            except: pass
-                """
-                sources.append([])
-                dates.append([])
-                titles.append([])
-                urls.append([])
-                """
+            except:
+                pass
         sources = sum(sources, [])
         dates = sum(dates, [])
         titles = sum(titles, [])
