@@ -27,7 +27,7 @@ class Naver_news_collect:
         cases = soup.select_one("#main_pack > div.news.mynews.section._prs_nws > div.section_head > div.title_desc.all_my > span")
         if cases:
             self.cases=int(cases.text.split("/")[1][:-1].replace(",","").strip())
-            return print("검색 결과, 총 {}건입니다".format(n_cases))
+            return print("검색 결과, 총 {}건입니다".format(self.cases))
         else:
             return print("검색 결과, 0건입니다")
 
