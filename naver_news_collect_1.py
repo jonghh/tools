@@ -27,7 +27,7 @@ class Naver_news_collect:
         cases = soup.select_one("#main_pack > div.news.mynews.section._prs_nws > div.section_head > div.title_desc.all_my > span")
         if cases:
             self.cases=int(cases.text.split("/")[1][:-1].replace(",","").strip())
-            return print("검색 결과, 총 {}건입니다".format(self.cases))
+            return print("검색 결과, 총 {}건입니다. /n 네이버에서는 1회 검색에 4,000건까지만 보여줍니다.".format(self.cases))
         else:
             return print("검색 결과, 0건입니다")
 
