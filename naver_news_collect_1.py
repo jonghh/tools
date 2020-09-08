@@ -26,20 +26,20 @@ class Naver_news_collect:
         return print("검색 결과, 총 {}건입니다".format(n_cases))
     def collect1(self, store_path):
         ''' 본문 제외 기사 수집 '''
-        ii = [self.target_url]
+        urlurl = [self.target_url]
         i = 1
         while self.cases > i+9:
             i += 10
-            ii.append(self.target_url[:-1]+"{}".format(i))
+            urlurl.append(self.target_url[:-1]+"{}".format(i))
 
         sources = []
         dates = []
         titles = []
         urls = []
         texts = []
-        for i in ii:
+        for url in urlurl:
             try:
-                req = requests.get(target_url[:-1]+"{}".format(i))
+                req = requests.get(url)
                 soup =BeautifulSoup(req.text, "html.parser")
 
                 a = soup.select("dd.txt_inline")
